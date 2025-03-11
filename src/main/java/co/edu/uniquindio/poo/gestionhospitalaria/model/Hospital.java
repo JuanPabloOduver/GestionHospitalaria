@@ -5,6 +5,7 @@ import java.util.LinkedList;
 public class Hospital {
     private LinkedList<Paciente> listaPacientes;
     private LinkedList<Doctor> listaDoctores;
+    private LinkedList<Cita> listaCitas;
 
     public Hospital(LinkedList<Paciente> listaPacientes, LinkedList<Doctor> listaDoctores) {
         this.listaPacientes = listaPacientes;
@@ -187,6 +188,85 @@ public class Hospital {
             listaDoctores.add(doctorActualizado);
         } else {
             respuesta = "Este doctor no existe";
+        }
+        return respuesta;
+    }
+
+    /**
+     * Agrega una cita si esta no existe
+     *
+     * @param cita
+     * @return mensaje indicando si fue añadida o ya existe
+     * @throws IllegalArgumentException
+     */
+    public String AgregarCita(Cita cita) throws IllegalArgumentException {
+        String respuesta = "La cita se añadió correctamente";
+        if (cita == null) {
+            throw new IllegalArgumentException("La cita no puede ser nula");
+        }
+        Cita citaAux = BuscarCita(cita.getIdCita());
+        if (citaAux == null) {
+            listaCitas.add(cita);
+        } else {
+            respuesta = "Esta cita ya existe";
+        }
+        return respuesta;
+    }
+
+    /**
+     * Busca una cita mediante su nombre en la lista de citaes
+     *
+     * @param nombreCita
+     * @return la cita si es encontrada o null en caso contrario
+     */
+    public Cita BuscarCita(String nombreCita) {
+        return listaCitas.stream()
+                .filter(citaAux -> citaAux.getIdCita().equals(nombreCita))
+                .findFirst()
+                .orElse(null);
+    }
+
+    /**
+     * Elimina una cita siempre y cuando esta exista en la lista
+     *
+     * @param cita
+     * @return un mensaje indicando si fue eliminada o no existe
+     * @throws IllegalArgumentException
+     */
+    public String EliminarCita(Cita cita) throws IllegalArgumentException {
+        String respuesta = "La cita se eliminó correctamente";
+        if (cita == null) {
+            throw new IllegalArgumentException("La cita no puede ser nula");
+        }
+        Cita citaAux = BuscarCita(cita.getIdCita());
+        if (citaAux != null) {
+            listaCitas.remove(cita);
+        } else {
+            respuesta = "Esta cita no existe";
+        }
+        return respuesta;
+    }
+
+    /**
+     * Actualiza una cita de la lista eliminándolo y añadiendo la versión actualizada siempre y cuando este exista
+     *
+     * @param cita
+     * @param citaActualizada
+     * @return un mensaje indicando si se pudo actualizar o no existe
+     * @throws IllegalArgumentException
+     */
+    public String ActualizarCita(Cita cita, Cita citaActualizada) throws IllegalArgumentException {
+        String respuesta = "La cita ha sido actualizada";
+
+        if (cita == null || citaActualizada == null) {
+            throw new IllegalArgumentException("La cita no puede ser nula");
+        }
+        Cita citaAux = BuscarCita(cita.getIdCita());
+        if (citaAux != null) {
+            listaCitas.remove(cita);
+            listaCitas.add(citaActualizada);
+        } else {
+            respuesta = "Esta cita no existe";
         }
         return respuesta;
     }

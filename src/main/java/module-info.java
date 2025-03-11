@@ -1,6 +1,7 @@
 module co.edu.uniquindio.poo.gestionhospitalaria {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.xml;
 
 
     opens co.edu.uniquindio.poo.gestionhospitalaria to javafx.fxml;
