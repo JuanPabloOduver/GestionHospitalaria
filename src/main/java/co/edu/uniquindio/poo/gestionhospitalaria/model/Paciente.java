@@ -2,15 +2,31 @@ package co.edu.uniquindio.poo.gestionhospitalaria.model;
 
 import java.util.LinkedList;
 
-public class Paciente extends Persona {
+public class Paciente extends Persona implements SistemaClonacionPaciente {
     private HistorialMedico historialMedico;
     private LinkedList<Cita> listaCitas;
 
     public Paciente(String nombre, String apellido, String cedula, Integer edad, HistorialMedico historialMedico, LinkedList<Cita> listaCitas) {
         super(nombre, apellido, cedula, edad);
         this.historialMedico = historialMedico;
-        this.listaCitas = listaCitas;
+        this.listaCitas = new LinkedList<>(listaCitas); // Copia defensiva
     }
+
+    @Override
+    public Paciente clone() {
+        HistorialMedico historialClonado = new HistorialMedico(this.historialMedico);
+        LinkedList<Cita> citasClonadas = new LinkedList<>();
+        for (Cita cita : this.listaCitas) {
+            citasClonadas.add(new Cita(cita));
+        }
+
+        return new Paciente(this.getNombre(), this.getApellido(), this.getCedula(), this.getEdad(), historialClonado, citasClonadas);
+    }
+
+    @Override
+    public Paciente clone() {
+        return new Paciente(this); // Usa el constructor de copia
+    }|
 
     public HistorialMedico getHistorialMedico() {
         return historialMedico;
@@ -20,10 +36,10 @@ public class Paciente extends Persona {
     }
 
     public LinkedList<Cita> getListaCitas() {
-        return listaCitas;
+        return new LinkedList<>(listaCitas);
     }
     public void setListaCitas(LinkedList<Cita> listaCitas) {
-        this.listaCitas = listaCitas;
+        this.listaCitas = new LinkedList<>(listaCitas);
     }
 
     @Override
@@ -31,10 +47,10 @@ public class Paciente extends Persona {
         return "Paciente{" +
                 "historialMedico=" + historialMedico +
                 ", listaCitas=" + listaCitas +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", cedula='" + cedula + '\'' +
-                ", edad=" + edad +
+                ", nombre='" + getNombre() + '\'' +
+                ", apellido='" + getApellido() + '\'' +
+                ", cedula='" + getCedula() + '\'' +
+                ", edad=" + getEdad() +
                 '}';
     }
 }
