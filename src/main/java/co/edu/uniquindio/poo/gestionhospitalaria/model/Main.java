@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.gestionhospitalaria;
+package co.edu.uniquindio.poo.gestionhospitalaria.model;
 
 import co.edu.uniquindio.poo.gestionhospitalaria.model.*;
 import javafx.application.Application;
@@ -14,11 +14,17 @@ public class Main extends Application {
 
         HistorialMedico historial = new HistorialMedico();
         LinkedList<Cita> listaCitas = new LinkedList<>();
+        LinkedList<Paciente> listaPacientes = new LinkedList<>();
 
-        Paciente pacienteOriginal = new Paciente("Juan", "Pérez", "123456789", 30, historial, listaCitas);
-        Doctor doctor = new Doctor("Ana", "Gómez", "987654321", 40, "Cardiología");
+        Paciente pacienteOriginal = new Paciente("Juan", "Oduver", "123456789", 30, historial, listaCitas);
+        Paciente pacienteOriginal2 = new Paciente("Esteban", "Pérez", "1234567", 19, historial, listaCitas);
+        listaPacientes.add(pacienteOriginal);
+        listaPacientes.add(pacienteOriginal2);
 
-        Cita cita = new Cita(LocalDateTime.now(), doctor, pacienteOriginal);
+        Doctor doctor = new Doctor("Ana", "Gómez", "987654321", 40, listaPacientes, listaCitas);
+
+        Cita cita = new Cita("abcd", LocalDateTime.now(), doctor, pacienteOriginal);
+
         pacienteOriginal.getListaCitas().add(cita);
         Paciente pacienteClon = pacienteOriginal.clone();
 
