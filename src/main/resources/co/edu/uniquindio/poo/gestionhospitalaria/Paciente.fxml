@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="ap_administrador" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="672.0" prefWidth="1046.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewController.AdministradorViewController">
+   <children>
+      <SubScene height="647.0" layoutX="14.0" layoutY="11.0" width="253.0">
+         <root>
+            <Region />
+         </root>
+      </SubScene>
+      <SubScene fx:id="ssc_fondo2" height="426.0" layoutX="282.0" layoutY="231.0" width="749.0">
+         <root>
+            <Region />
+         </root>
+      </SubScene>
+      <SubScene fx:id="ssc_fondo1" height="206.0" layoutX="282.0" layoutY="13.0" width="749.0">
+         <root>
+            <Region />
+         </root>
+      </SubScene>
+      <Text fx:id="txt_nombreCliente" layoutX="492.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Paciente" textAlignment="CENTER" wrappingWidth="224.86474609375">
+         <font>
+            <Font name="Berlin Sans FB" size="23.0" />
+         </font>
+      </Text>
+      <Text fx:id="txt_quedeseahacer" fill="#566573" layoutX="310.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Que desea hacer?" textAlignment="CENTER" wrappingWidth="274.92919921875">
+         <font>
+            <Font name="Bauhaus 93" size="33.0" />
+         </font>
+      </Text>
+      <Button fx:id="btn_cerrarSesion" layoutX="32.0" layoutY="599.0" mnemonicParsing="false" onAction="#onCerrar" prefHeight="42.0" prefWidth="214.0" style="-fx-background-color: #003f69; -fx-border-color: black; -fx-border-width: 2; -fx-background-insets: 2; -fx-border-radius: 5;" text="Cerrar Sesion" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <TableView id="tb_listReservas" fx:id="tb_listCitas" layoutX="313.0" layoutY="299.0" prefHeight="315.0" prefWidth="690.0">
+         <columns>
+            <TableColumn prefWidth="218.0" text="Paciente">
+               <columns>
+                  <TableColumn fx:id="tb_nombrePaciente" prefWidth="114.0" text="Nombre" />
+                  <TableColumn fx:id="tb_idPaciente" prefWidth="137.0" text="Id" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="107.0" text="Doctor">
+               <columns>
+                  <TableColumn fx:id="tb_nombreDoctor" prefWidth="106.0" text="Nombre" />
+                  <TableColumn fx:id="tb_idDoctor" prefWidth="111.0" text="Id" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="92.0" text="Cita">
+               <columns>
+                  <TableColumn fx:id="tb_hora" prefWidth="87.0" text="Hora" />
+                  <TableColumn fx:id="tb_fecha" prefWidth="134.0" text="Fecha" />
+               </columns>
+            </TableColumn>
+         </columns>
+      </TableView>
+      <Text fx:id="txt_reservas" fill="#106b87" layoutX="289.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro Citas" textAlignment="CENTER" wrappingWidth="253.0">
+         <font>
+            <Font name="Bauhaus 93" size="33.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="img_carro" fitHeight="240.0" fitWidth="204.0" layoutX="31.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@TheCovenantClinic.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn_registrarPc" layoutX="32.0" layoutY="301.0" mnemonicParsing="false" onAction="#onRegistrarPc" prefHeight="42.0" prefWidth="214.0" style="-fx-background-color: #157a8c; -fx-border-color: black; -fx-border-width: 2; -fx-background-insets: 2; -fx-border-radius: 5;" text="Registrar Pacientes" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_otros" layoutX="32.0" layoutY="355.0" mnemonicParsing="false" onAction="#onOtros" prefHeight="42.0" prefWidth="214.0" style="-fx-background-color: #003f69; -fx-border-color: black; -fx-border-width: 2; -fx-background-insets: 2; -fx-border-radius: 5;" text="Otros..." textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Text fx:id="txt_quedeseahacer1" fill="#106b87" layoutX="295.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido" textAlignment="CENTER" wrappingWidth="203.92919921875">
+         <font>
+            <Font name="Bauhaus 93" size="33.0" />
+         </font>
+      </Text>
+      <Separator layoutX="28.0" layoutY="288.0" prefHeight="4.0" prefWidth="225.0" style="-fx-background-color: gray;" />
+      <Text fx:id="txt_nombreCliente1" layoutX="21.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pacientes" textAlignment="CENTER" wrappingWidth="224.86474609375">
+         <font>
+            <Font name="Berlin Sans FB" size="23.0" />
+         </font>
+      </Text>
+      <Text fx:id="txt_tucarro" fill="#003f69" layoutX="447.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Covenant Clinic" textAlignment="CENTER" wrappingWidth="359.92919921875">
+         <font>
+            <Font name="Bauhaus 93" size="37.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
