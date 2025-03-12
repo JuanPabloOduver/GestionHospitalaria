@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.gestionhospitalaria.model;
 
-public class Medicamento {
+public class Medicamento implements SistemaClonacionMedicamento{
     private String nombreMedicamento;
     private String dosis;
 
