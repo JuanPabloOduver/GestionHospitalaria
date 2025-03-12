@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.gestionhospitalaria.viewController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;

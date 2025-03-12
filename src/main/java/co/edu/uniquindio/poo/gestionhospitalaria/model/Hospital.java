@@ -5,11 +5,13 @@ import java.util.LinkedList;
 public class Hospital {
     private static Hospital instancia;
 
+    private String nombre;
     private LinkedList<Paciente> listaPacientes;
     private LinkedList<Doctor> listaDoctores;
     private LinkedList<Cita> listaCitas;
 
     private Hospital() {
+        this.nombre = "Coveland ";
         this.listaPacientes = new LinkedList<>();
         this.listaDoctores = new LinkedList<>();
         this.listaCitas = new LinkedList<>();
@@ -20,6 +22,13 @@ public class Hospital {
             instancia = new Hospital();
         }
         return instancia;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public LinkedList<Paciente> getListaPacientes() {
@@ -44,9 +53,14 @@ public class Hospital {
         this.listaCitas = listaCitas;
     }
 
+    public static void setInstancia(Hospital instancia) {
+        Hospital.instancia = instancia;
+    }
+
     @Override
     public String toString() {
         return "Hospital{" +
+                "nombre='" + nombre + '\'' +
                 "listaPacientes=" + listaPacientes +
                 ", listaDoctores=" + listaDoctores +
                 '}';

@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.gestionhospitalaria.viewController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.SubScene;
 import javafx.scene.control.Button;
@@ -7,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+
 public class AdministradorViewController {
     @FXML
     private SubScene ssc_fondo2;

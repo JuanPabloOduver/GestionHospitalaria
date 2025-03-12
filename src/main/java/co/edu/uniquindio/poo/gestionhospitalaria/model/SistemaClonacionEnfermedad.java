@@ -1,5 +1,5 @@
 package co.edu.uniquindio.poo.gestionhospitalaria.model;
 
 public interface SistemaClonacionEnfermedad {
-    Enfermedad Clone();
+    Enfermedad clone();
 }
