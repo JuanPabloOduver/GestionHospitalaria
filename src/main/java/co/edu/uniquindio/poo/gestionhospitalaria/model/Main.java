@@ -3,7 +3,8 @@ package co.edu.uniquindio.poo.gestionhospitalaria.model;
 import co.edu.uniquindio.poo.gestionhospitalaria.model.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.LinkedList;
 
 public class Main extends Application {
@@ -23,7 +24,7 @@ public class Main extends Application {
 
         Doctor doctor = new Doctor("Ana", "Gómez", "987654321", 40, listaPacientes, listaCitas);
 
-        Cita cita = new Cita("abcd", LocalDateTime.now(), doctor, pacienteOriginal);
+        Cita cita = new Cita("abcd", LocalDate.now(), LocalTime.now(), doctor, pacienteOriginal);
 
         pacienteOriginal.getListaCitas().add(cita);
         Paciente pacienteClon = pacienteOriginal.clone();

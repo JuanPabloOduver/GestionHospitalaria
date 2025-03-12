@@ -1,16 +1,19 @@
 package co.edu.uniquindio.poo.gestionhospitalaria.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Cita {
     private String idCita;
-    private LocalDateTime fechaHoraCita;
+    private LocalDate fechaCita;
+    private LocalTime horaCita;
     private Doctor doctor;
     private Paciente paciente;
 
-    public Cita(String idCita, LocalDateTime fechaCita, Doctor doctor, Paciente paciente) {
+    public Cita(String idCita, LocalDate fechaCita, LocalTime horaCita, Doctor doctor, Paciente paciente) {
         this.idCita = idCita;
-        this.fechaHoraCita = fechaCita;
+        this.fechaCita = fechaCita;
+        this.horaCita = horaCita;
         this.doctor = doctor;
         this.paciente = paciente;
     }
@@ -22,11 +25,18 @@ public class Cita {
         this.idCita = idCita;
     }
 
-    public LocalDateTime getFechaHoraCita() {
-        return fechaHoraCita;
+    public LocalDate getFechaCita() {
+        return fechaCita;
     }
-    public void setFechaHoraCita(LocalDateTime fechaHoraCita) {
-        this.fechaHoraCita = fechaHoraCita;
+    public void setFechaCita(LocalDate fechaCita) {
+        this.fechaCita = fechaCita;
+    }
+
+    public LocalTime getHoraCita() {
+        return horaCita;
+    }
+    public void setHoraCita(LocalTime horaCita) {
+        this.horaCita = horaCita;
     }
 
     public Doctor getDoctor() {
@@ -42,12 +52,13 @@ public class Cita {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
-
+    
     @Override
     public String toString() {
         return "Cita{" +
                 "idCita='" + idCita + '\'' +
-                ", fechaHoraCita=" + fechaHoraCita +
+                ", fechaCita=" + fechaCita +
+                ", horaCita=" + horaCita +
                 ", doctor=" + doctor +
                 ", paciente=" + paciente +
                 '}';
