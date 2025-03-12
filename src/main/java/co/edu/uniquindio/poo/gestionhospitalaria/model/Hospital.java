@@ -3,13 +3,23 @@ package co.edu.uniquindio.poo.gestionhospitalaria.model;
 import java.util.LinkedList;
 
 public class Hospital {
+    private static Hospital instancia;
+
     private LinkedList<Paciente> listaPacientes;
     private LinkedList<Doctor> listaDoctores;
     private LinkedList<Cita> listaCitas;
 
-    public Hospital(LinkedList<Paciente> listaPacientes, LinkedList<Doctor> listaDoctores) {
-        this.listaPacientes = listaPacientes;
-        this.listaDoctores = listaDoctores;
+    private Hospital() {
+        this.listaPacientes = new LinkedList<>();
+        this.listaDoctores = new LinkedList<>();
+        this.listaCitas = new LinkedList<>();
+    }
+
+    public static Hospital getInstancia() {
+        if (instancia == null) {
+            instancia = new Hospital();
+        }
+        return instancia;
     }
 
     public LinkedList<Paciente> getListaPacientes() {
@@ -24,6 +34,14 @@ public class Hospital {
     }
     public void setListaDoctores(LinkedList<Doctor> listaDoctores) {
         this.listaDoctores = listaDoctores;
+    }
+
+    public LinkedList<Cita> getListaCitas() {
+        return listaCitas;
+    }
+
+    public void setListaCitas(LinkedList<Cita> listaCitas) {
+        this.listaCitas = listaCitas;
     }
 
     @Override
