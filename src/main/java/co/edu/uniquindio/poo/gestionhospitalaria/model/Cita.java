@@ -3,7 +3,7 @@ package co.edu.uniquindio.poo.gestionhospitalaria.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Cita {
+public class Cita implements SistemaClonacionCita{
     private String idCita;
     private LocalDate fechaCita;
     private LocalTime horaCita;
@@ -16,6 +16,11 @@ public class Cita {
         this.horaCita = horaCita;
         this.doctor = doctor;
         this.paciente = paciente;
+    }
+
+    @Override
+    public Cita clone() {
+        return new Cita(this.idCita, this.fechaCita, this.horaCita, this.doctor, this.paciente);
     }
 
     public String getIdCita() {
@@ -52,7 +57,7 @@ public class Cita {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
-    
+
     @Override
     public String toString() {
         return "Cita{" +

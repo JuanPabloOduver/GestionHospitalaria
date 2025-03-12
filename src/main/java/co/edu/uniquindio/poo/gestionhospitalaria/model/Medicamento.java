@@ -9,6 +9,11 @@ public class Medicamento {
         this.dosis = dosis;
     }
 
+    @Override
+    public Medicamento clone() {
+        return new Medicamento(this.nombreMedicamento, this.dosis);
+    }
+
     public String getNombreMedicamento() {
         return nombreMedicamento;
     }

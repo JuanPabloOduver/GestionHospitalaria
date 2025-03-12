@@ -1,6 +1,5 @@
 package co.edu.uniquindio.poo.gestionhospitalaria.model;
 
-import javax.xml.stream.events.EndDocument;
 import java.util.LinkedList;
 
 public class Doctor extends Persona {
