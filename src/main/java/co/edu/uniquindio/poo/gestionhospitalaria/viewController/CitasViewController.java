@@ -1,7 +1,5 @@
 package co.edu.uniquindio.poo.gestionhospitalaria.viewController;
 import co.edu.uniquindio.poo.gestionhospitalaria.App;
-import co.edu.uniquindio.poo.gestionhospitalaria.model.Hospital;
-import co.edu.uniquindio.poo.gestionhospitalaria.model.Paciente;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -12,12 +10,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.event.ActionEvent;
 
-public class CrudPacienteViewController {
+public class CitasViewController {
     @FXML
-    private TextField txf_nombre;
-
-    @FXML
-    private Button btn_agregarDoctor;
+    private TableColumn<?, ?> tb_nombreDoctor;
 
     @FXML
     private ImageView img_carro;
@@ -26,28 +21,31 @@ public class CrudPacienteViewController {
     private AnchorPane ap_gestionCliente;
 
     @FXML
-    private Button btn_actualizarDoctor;
+    private TableColumn<?, ?> tb_idDoctor;
 
     @FXML
-    private TableColumn<?, ?> tbc_edad;
+    private Button btn_listar;
 
     @FXML
-    private Button btn_eliminar;
+    private TextField txf_doctor;
 
     @FXML
-    private TableColumn<?, ?> tbc_apellido;
+    private Button btn_reservar;
 
     @FXML
-    private TableColumn<?, ?> tbc_nombre;
+    private Button btn_cancelar;
 
     @FXML
-    private TextField txf_edad;
+    private TextField txf_fecha;
 
     @FXML
-    private TextField txf_cedula;
+    private Text txt_reservas;
 
     @FXML
-    private TableView<?> tb_listClientes;
+    private TableView<?> tb_listCitas;
+
+    @FXML
+    private TableColumn<?, ?> tb_fecha;
 
     @FXML
     private Button btn_volder;
@@ -56,28 +54,32 @@ public class CrudPacienteViewController {
     private Text txt_tucarro;
 
     @FXML
-    private TableColumn<?, ?> tbc_cedula;
+    private ImageView img_carro1;
 
     @FXML
-    private TextField txf_apellido;
+    private TextField txf_hora;
 
+    @FXML
+    private TableColumn<?, ?> tb_hora;
 
     @FXML
     void onVolver(ActionEvent event) {
-        app.openAdministrador();
-    }
-
-    @FXML
-    void onEliminar(ActionEvent event) {
 
     }
 
     @FXML
-    void onActualizar(ActionEvent event) {
+    void onListar(ActionEvent event) {
+
     }
 
     @FXML
-    void onAgregar(ActionEvent event) {
+    void onCancelar(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onReservar(ActionEvent event) {
+
     }
 
     App app;
@@ -85,13 +87,4 @@ public class CrudPacienteViewController {
     public void setApp(App app) {
         this.app = app;
     }
-
-    @SuppressWarnings("static-access")
-    @FXML
-    void initialize() {
-    }
 }
-
-
-
-

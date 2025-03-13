@@ -3,21 +3,26 @@ package co.edu.uniquindio.poo.gestionhospitalaria.model;
 import java.util.LinkedList;
 
 public class HistorialMedico implements  SistemaClonacionHistorialMedico{
+    private Paciente paciente;
     private LinkedList<Medicamento> listaMedicamentos;
     private LinkedList<Enfermedad> listaEnfermedades;
 
     public HistorialMedico() {
+        this.paciente = paciente;
         this.listaMedicamentos = new LinkedList<>();
         this.listaEnfermedades = new LinkedList<>();
     }
 
-    public HistorialMedico(LinkedList<Medicamento> listaMedicamentos, LinkedList<Enfermedad> listaEnfermedades) {
+    public HistorialMedico(Paciente paciente, LinkedList<Medicamento> listaMedicamentos, LinkedList<Enfermedad> listaEnfermedades) {
+        this.paciente = paciente;
         this.listaMedicamentos = new LinkedList<>(listaMedicamentos);
         this.listaEnfermedades = new LinkedList<>(listaEnfermedades);
     }
 
     @Override
     public HistorialMedico clone() {
+        Paciente pacienteClonado = paciente.clone();
+
         LinkedList<Medicamento> medicamentosClonados = new LinkedList<>();
         for (Medicamento m : listaMedicamentos) {
             medicamentosClonados.add(m.clone()); // Clonando cada medicamento
@@ -28,7 +33,7 @@ public class HistorialMedico implements  SistemaClonacionHistorialMedico{
             enfermedadesClonadas.add(e.clone()); // Clonando cada enfermedad
         }
 
-        return new HistorialMedico(medicamentosClonados, enfermedadesClonadas);
+        return new HistorialMedico(pacienteClonado, medicamentosClonados, enfermedadesClonadas);
     }
 
     public LinkedList<Medicamento> getListaMedicamentos() {

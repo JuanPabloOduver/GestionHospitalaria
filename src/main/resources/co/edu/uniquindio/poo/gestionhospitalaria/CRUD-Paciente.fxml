@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="ap_gestionCliente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="893.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewController.GestionClViewController">
+<AnchorPane fx:id="ap_CRUDPaciente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="893.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.gestionhospitalaria.viewController.CrudPacienteViewController">
    <children>
       <SubScene height="349.0" layoutX="26.0" layoutY="411.0" width="844.0">
          <root>
@@ -25,7 +25,7 @@
             <Font name="Bauhaus 93" size="33.0" />
          </font>
       </Text>
-      <Button id="btn_volver" fx:id="btn_volder" layoutX="79.0" layoutY="692.0" mnemonicParsing="false" onAction="#onVolver" prefHeight="42.0" prefWidth="201.0" style="-fx-background-color: #003f69; -fx-border-color: black; -fx-border-width: 2; -fx-background-insets: 2; -fx-border-radius: 5;" text="Volver" textFill="WHITE">
+      <Button id="btn_volver" fx:id="btn_volver" layoutX="79.0" layoutY="692.0" mnemonicParsing="false" onAction="#onVolver" prefHeight="42.0" prefWidth="201.0" style="-fx-background-color: #003f69; -fx-border-color: black; -fx-border-width: 2; -fx-background-insets: 2; -fx-border-radius: 5;" text="Volver" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font>

@@ -3,13 +3,13 @@ package co.edu.uniquindio.poo.gestionhospitalaria.model;
 public class Persona {
     public String nombre;
     public String apellido;
-    public String cedula;
+    public String id;
     public Integer edad;
 
-    public Persona (String nombre, String apellido, String cedula, Integer edad){
+    public Persona (String nombre, String apellido, String id, Integer edad){
         this.nombre = nombre;
         this.apellido = apellido;
-        this.cedula = cedula;
+        this.id = id;
         this.edad = edad;
     }
 
@@ -27,11 +27,11 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public String getCedula() {
-        return cedula;
+    public String getId() {
+        return id;
     }
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Integer getEdad() {
@@ -46,7 +46,7 @@ public class Persona {
         return "Persona{" +
                 "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
-                ", cedula='" + cedula + '\'' +
+                ", id='" + id + '\'' +
                 ", edad=" + edad +
                 '}';
     }

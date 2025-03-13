@@ -6,8 +6,8 @@ public class Paciente extends Persona implements SistemaClonacionPaciente {
     private HistorialMedico historialMedico;
     private LinkedList<Cita> listaCitas;
 
-    public Paciente(String nombre, String apellido, String cedula, Integer edad, HistorialMedico historialMedico, LinkedList<Cita> listaCitas) {
-        super(nombre, apellido, cedula, edad);
+    public Paciente(String nombre, String apellido, String id, Integer edad, HistorialMedico historialMedico, LinkedList<Cita> listaCitas) {
+        super(nombre, apellido, id, edad);
         this.historialMedico = historialMedico;
         this.listaCitas = new LinkedList<>(listaCitas);
     }
@@ -16,7 +16,7 @@ public class Paciente extends Persona implements SistemaClonacionPaciente {
     public Paciente clone() {
         HistorialMedico historialClonado = this.historialMedico.clone();
         LinkedList<Cita> citasClonadas = new LinkedList<>(this.listaCitas);
-        return new Paciente(this.getNombre(), this.getApellido(), this.getCedula(),
+        return new Paciente(this.getNombre(), this.getApellido(), this.getId(),
                 this.getEdad(), historialClonado, citasClonadas);
     }
 
@@ -41,7 +41,7 @@ public class Paciente extends Persona implements SistemaClonacionPaciente {
                 ", listaCitas=" + listaCitas +
                 ", nombre='" + getNombre() + '\'' +
                 ", apellido='" + getApellido() + '\'' +
-                ", cedula='" + getCedula() + '\'' +
+                ", id='" + getId() + '\'' +
                 ", edad=" + getEdad() +
                 '}';
     }

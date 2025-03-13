@@ -1,6 +1,9 @@
 package co.edu.uniquindio.poo.gestionhospitalaria.model;
 
+import java.time.LocalDate;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Hospital {
     private static Hospital instancia;
@@ -9,12 +12,14 @@ public class Hospital {
     private LinkedList<Paciente> listaPacientes;
     private LinkedList<Doctor> listaDoctores;
     private LinkedList<Cita> listaCitas;
+    private LinkedList<Administrador> listaAdministradores;
 
     private Hospital() {
-        this.nombre = "Coveland ";
+        this.nombre = "The Covenant Clinic";
         this.listaPacientes = new LinkedList<>();
         this.listaDoctores = new LinkedList<>();
         this.listaCitas = new LinkedList<>();
+        this.listaAdministradores = new LinkedList<>();
     }
 
     public static Hospital getInstancia() {
@@ -43,6 +48,13 @@ public class Hospital {
     }
     public void setListaDoctores(LinkedList<Doctor> listaDoctores) {
         this.listaDoctores = listaDoctores;
+    }
+
+    public LinkedList<Administrador> getListaAdministradores() {
+        return listaAdministradores;
+    }
+    public void setListaAdministradores(LinkedList<Administrador> listaAdministradores) {
+        this.listaAdministradores = listaAdministradores;
     }
 
     public LinkedList<Cita> getListaCitas() {
@@ -78,7 +90,7 @@ public class Hospital {
         if (paciente == null) {
             throw new IllegalArgumentException("El paciente no puede ser nulo");
         }
-        Paciente pacienteAux = BuscarPaciente(paciente.getCedula());
+        Paciente pacienteAux = BuscarPaciente(paciente.getId());
         if (pacienteAux == null) {
             listaPacientes.add(paciente);
         } else {
@@ -90,12 +102,12 @@ public class Hospital {
     /**
      * Busca un paciente mediante su cédula en la lista de pacientes
      *
-     * @param cedula
+     * @param id
      * @return el paciente si es encontrado o null en caso contrario
      */
-    public Paciente BuscarPaciente(String cedula) {
+    public Paciente BuscarPaciente(String id) {
         return listaPacientes.stream()
-                .filter(pacienteAux -> pacienteAux.getCedula().equals(cedula))
+                .filter(pacienteAux -> pacienteAux.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
@@ -112,7 +124,7 @@ public class Hospital {
         if (paciente == null) {
             throw new IllegalArgumentException("El paciente no puede ser nulo");
         }
-        Paciente pacienteAux = BuscarPaciente(paciente.getCedula());
+        Paciente pacienteAux = BuscarPaciente(paciente.getId());
         if (pacienteAux != null) {
             listaPacientes.remove(paciente);
         } else {
@@ -135,7 +147,7 @@ public class Hospital {
         if (paciente == null || pacienteActualizado == null) {
             throw new IllegalArgumentException("El paciente no puede ser nulo");
         }
-        Paciente pacienteAux = BuscarPaciente(paciente.getCedula());
+        Paciente pacienteAux = BuscarPaciente(paciente.getId());
         if (pacienteAux != null) {
             listaPacientes.remove(paciente);
             listaPacientes.add(pacienteActualizado);
@@ -157,7 +169,7 @@ public class Hospital {
         if (doctor == null) {
             throw new IllegalArgumentException("El doctor no puede ser nulo");
         }
-        Doctor doctorAux = BuscarDoctor(doctor.getCedula());
+        Doctor doctorAux = BuscarDoctor(doctor.getId());
         if (doctorAux == null) {
             listaDoctores.add(doctor);
         } else {
@@ -169,12 +181,12 @@ public class Hospital {
     /**
      * Busca un doctor mediante su cédula en la lista de doctors
      *
-     * @param cedula
+     * @param id
      * @return el doctor si es encontrado o null en caso contrario
      */
-    public Doctor BuscarDoctor(String cedula) {
+    public Doctor BuscarDoctor(String id) {
         return listaDoctores.stream()
-                .filter(doctorAux -> doctorAux.getCedula().equals(cedula))
+                .filter(doctorAux -> doctorAux.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
@@ -191,7 +203,7 @@ public class Hospital {
         if (doctor == null) {
             throw new IllegalArgumentException("El doctor no puede ser nulo");
         }
-        Doctor doctorAux = BuscarDoctor(doctor.getCedula());
+        Doctor doctorAux = BuscarDoctor(doctor.getId());
         if (doctorAux != null) {
             listaDoctores.remove(doctor);
         } else {
@@ -214,7 +226,7 @@ public class Hospital {
         if (doctor == null || doctorActualizado == null) {
             throw new IllegalArgumentException("El doctor no puede ser nulo");
         }
-        Doctor doctorAux = BuscarDoctor(doctor.getCedula());
+        Doctor doctorAux = BuscarDoctor(doctor.getId());
         if (doctorAux != null) {
             listaDoctores.remove(doctor);
             listaDoctores.add(doctorActualizado);
@@ -301,5 +313,53 @@ public class Hospital {
             respuesta = "Esta cita no existe";
         }
         return respuesta;
+    }
+
+    public List<Cita> listarCitasPorFecha(LocalDate fecha) {
+        if (fecha == null) {
+            throw new IllegalArgumentException("La fecha no puede ser nula");
+        }
+        return listaCitas.stream()
+                .filter(cita -> cita.getFechaCita().equals(fecha))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Obtiene una lista de pacientes cuyos nombres son palíndromos.
+     *
+     * @return Lista de pacientes con nombres palíndromos.
+     */
+    public List<Paciente> obtenerPacientesConNombresPalindromos() {
+        return listaPacientes.stream()
+                .filter(paciente -> esPalindromo(paciente.getNombre()))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Verifica si una cadena es un palíndromo (ignorando mayúsculas y espacios).
+     *
+     * @param nombre Cadena a evaluar.
+     * @return true si es un palíndromo, false en caso contrario.
+     */
+    private boolean esPalindromo(String nombre) {
+        String limpio = nombre.replaceAll("\\s+", "").toLowerCase();
+        return limpio.equals(new StringBuilder(limpio).reverse().toString());
+    }
+
+    public List<Paciente> obtenerPacientesConDosVocalesIguales() {
+        return listaPacientes.stream()
+                .filter(paciente -> tieneDosVocalesIguales(paciente.getNombre()))
+                .collect(Collectors.toList());
+    }
+
+    private boolean tieneDosVocalesIguales(String nombre) {
+        String nombreLower = nombre.toLowerCase();
+        String vocales = "aeiou";
+        for (char vocal : vocales.toCharArray()) {
+            if (nombreLower.chars().filter(ch -> ch == vocal).count() >= 2) {
+                return true;
+            }
+        }
+        return false;
     }
 }

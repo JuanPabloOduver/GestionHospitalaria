@@ -8,10 +8,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-
 import javafx.event.ActionEvent;
 
-public class AdministradorViewController {
+public class PacienteViewController {
     @FXML
     private SubScene ssc_fondo2;
 
@@ -28,13 +27,7 @@ public class AdministradorViewController {
     private ImageView img_carro;
 
     @FXML
-    private TableColumn<?, ?> tb_idPaciente;
-
-    @FXML
     private TableColumn<?, ?> tb_idDoctor;
-
-    @FXML
-    private Button btn_gestionDoc;
 
     @FXML
     private Text txt_quedeseahacer1;
@@ -43,16 +36,10 @@ public class AdministradorViewController {
     private Text txt_nombreCliente1;
 
     @FXML
-    private Text txt_nombreCliente12;
-
-    @FXML
     private Text txt_nombreCliente;
 
     @FXML
     private Text txt_quedeseahacer;
-
-    @FXML
-    private TableColumn<?, ?> tb_nombrePaciente;
 
     @FXML
     private Text txt_reservas;
@@ -85,17 +72,15 @@ public class AdministradorViewController {
 
     @FXML
     void onRegistrarPc(ActionEvent event) {
-        app.openCrudPaciente();
+
     }
 
     @FXML
     void onOtros(ActionEvent event) {
-        app.openPaciente();
-    }
 
+    }
     @FXML
-    void onGestionDoc(ActionEvent event) {
-        app.openCrudDoctor();
+    void initialize() {
     }
 
     App app;

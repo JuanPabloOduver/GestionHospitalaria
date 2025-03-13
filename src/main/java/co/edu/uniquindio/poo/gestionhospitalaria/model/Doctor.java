@@ -7,11 +7,13 @@ public class Doctor extends Persona {
     private LinkedList<Cita> listaCitas;
     private LinkedList<Medicamento> listaMedicamentos;
     private LinkedList<Enfermedad> listaEnfermedades;
+    private LinkedList<HistorialMedico> listaHistorialMedicos;
 
-    public Doctor(String nombre, String apellido, String cedula, Integer edad, LinkedList<Paciente> listaPacientes, LinkedList<Cita> listaCitas) {
-        super(nombre, apellido, cedula, edad);
+    public Doctor(String nombre, String apellido, String id, Integer edad, LinkedList<Paciente> listaPacientes, LinkedList<Cita> listaCitas) {
+        super(nombre, apellido, id, edad);
         this.listaPacientes = listaPacientes;
         this.listaCitas = listaCitas;
+        this.listaHistorialMedicos = new LinkedList<>();
     }
 
     public LinkedList<Paciente> getListaPacientes() {
@@ -28,6 +30,14 @@ public class Doctor extends Persona {
         this.listaCitas = listaCitas;
     }
 
+
+    public LinkedList<HistorialMedico> getListaHistorialMedicos() {
+        return listaHistorialMedicos;
+    }
+    public void setListaHistorialMedicos(LinkedList<HistorialMedico> listaHistorialMedicos) {
+        this.listaHistorialMedicos = listaHistorialMedicos;
+    }
+
     @Override
     public String toString() {
         return "Doctor{" +
@@ -35,7 +45,7 @@ public class Doctor extends Persona {
                 ", listaCitas=" + listaCitas +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
-                ", cedula='" + cedula + '\'' +
+                ", cedula='" + id + '\'' +
                 ", edad=" + edad +
                 '}';
     }
@@ -118,7 +128,6 @@ public class Doctor extends Persona {
         }
         return respuesta;
     }
-
 
     /**
      * Agrega una enfermedad si esta no existe

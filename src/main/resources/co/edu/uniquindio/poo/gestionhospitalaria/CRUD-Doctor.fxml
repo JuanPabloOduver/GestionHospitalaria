@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="ap_gestionCliente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="893.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewController.GestionClViewController">
+<AnchorPane fx:id="ap_CRUDDoctor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="893.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.gestionhospitalaria.viewController.CrudDoctorViewController">
    <children>
       <SubScene height="349.0" layoutX="26.0" layoutY="411.0" width="844.0">
          <root>
@@ -35,7 +35,7 @@
             <Font name="Bauhaus 93" size="33.0" />
          </font>
       </Text>
-      <TableView id="tb_listClientes" fx:id="tb_listClientes" layoutX="79.0" layoutY="466.0" prefHeight="208.0" prefWidth="749.0">
+      <TableView id="tb_listDoctores" fx:id="tb_listDoctores" layoutX="79.0" layoutY="466.0" prefHeight="208.0" prefWidth="749.0">
          <columns>
             <TableColumn id="tbc_nombreCl" fx:id="tbc_nombre" prefWidth="136.0" text="Nombre" />
             <TableColumn id="tbc_correoCl" fx:id="tbc_apellido" prefWidth="184.0" text="Apellido" />
